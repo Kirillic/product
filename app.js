@@ -29,7 +29,7 @@ const songs = [
     },
     {
         id: '2',
-        songName:` cant stop <br>
+        songName:` Сant stop <br>
         <div class="subtitle">Red Hot Chili Peppers</div>`,
         poster: "img/2.jpg"
     },
@@ -44,7 +44,74 @@ const songs = [
         songName:` Sway to My Beat in Cosmos <br>
         <div class="subtitle">Robin, HOYO-MiX, 阿烈@Soundhub Studios, Chevy</div>`,
         poster: "img/4.jpg"
-    }
+    },
+    {
+        id: '5',
+        songName:` Тысячи птиц <br>
+        <div class="subtitle">FACE</div>`,
+        poster: "img/5.jpg"
+    },
+    {
+        id: '6',
+        songName:` WildFire <br>
+        <div class="subtitle">HOYO-MiX, 宫奇, Jonathan Steingard</div>`,
+        poster: "img/6.jpg"
+    },
+    {
+        id: '7',
+        songName:` Last Christmas <br>
+        <div class="subtitle">Wham!</div>`,
+        poster: "img/7.jpg"
+    },
+    {
+        id: '8',
+        songName:` Bobr <br>
+        <div class="subtitle">SLAVA SKRIPKA</div>`,
+        poster: "img/8.jpg"
+    },
+    {
+        id: '9',
+        songName:` Кажется <br>
+        <div class="subtitle">Uma2rman</div>`,
+        poster: "img/9.jpg"
+    },
+    {
+        id: '10',
+        songName:` Пожары <br>
+        <div class="subtitle">XOLIDAYBOY</div>`,
+        poster: "img/10.jpg"
+    },
+    {
+        id: '11',
+        songName:` Нервы <br>
+        <div class="subtitle">Нервы</div>`,
+        poster: "img/11.jpg"
+    },
+    {
+        id: '12',
+        songName:` Можно я с тобой <br>
+        <div class="subtitle">DVN</div>`,
+        poster: "img/12.jpg"
+    },
+    {
+        id: '13',
+        songName:` Люди <br>
+        <div class="subtitle">Дайте танк (!)</div>`,
+        poster: "img/13.jpg"
+    },
+    {
+        id: '14',
+        songName:` Андеграунд <br>
+        <div class="subtitle">Йорш</div>`,
+        poster: "img/14.jpg"
+    },
+    {
+        id: '15',
+        songName:` I Like The Way You Kiss Me <br>
+        <div class="subtitle">Artemas</div>`,
+        poster: "img/15.jpg"
+    },
+
 ]
 
 Array.from(document.getElementsByClassName('songItem')).forEach((element, i)=>{
@@ -243,4 +310,40 @@ next.addEventListener('click', ()=>{
     makeAllBackgrounds();
     Array.from(document.getElementsByClassName("songItem"))[`${index-1}`].style.background = "rgba(105, 105, 170, .1)";
     
+})
+
+
+
+
+const searchInput = document.getElementById('searchInput');
+const content = document.getElementById('content').innerHTML;
+
+searchInput.addEventListener('input', (e) => {
+  const searchTerm = e.target.value.toLowerCase();
+  const regex = new RegExp(searchTerm, 'gi');
+  const highlightedContent = content.replace(regex, match => `<mark>${match}</mark>`);
+  document.getElementById('content').innerHTML = highlightedContent;
+});
+
+let left_scroll = document.getElementById(`left_scroll`);
+let right_scroll = document.getElementById(`right_scroll`);
+let pop_song = document.getElementsByClassName(`pop_song`)[0];
+
+left_scroll.addEventListener('click', ()=>{
+    pop_song.scrollLeft -= 225;
+})
+right_scroll.addEventListener('click', ()=>{
+    pop_song.scrollLeft += 225;
+})
+
+
+let left_scrolls = document.getElementById(`left_scrolls`);
+let right_scrolls = document.getElementById(`right_scrolls`);
+let item = document.getElementsByClassName(`item`)[0];
+
+left_scrolls.addEventListener('click', ()=>{
+    item.scrollLeft -= 225;
+})
+right_scrolls.addEventListener('click', ()=>{
+    item.scrollLeft += 225;
 })
